@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+//style
+import { Global } from "./styled/Global";
+import { Heading } from "./styled/Heading";
+import { FormSection } from "./styled/Container";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Global />
+      {/* <Heading>Business Project</Heading> */}
+      <Switch>
+        <Route path="/home">
+          <HomePage />
+        </Route>
+        <Route path="/login">
+          <FormSection>
+            <LoginPage />
+          </FormSection>
+        </Route>
+        <Route path="/">
+          <FormSection>
+            <RegisterPage />
+          </FormSection>
+        </Route>
+      </Switch>
     </div>
   );
 }
