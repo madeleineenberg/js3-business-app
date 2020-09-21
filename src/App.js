@@ -7,22 +7,26 @@ import RegisterPage from "./pages/RegisterPage";
 import { Global } from "./styled/Global";
 import { Heading } from "./styled/Heading";
 import { FormSection } from "./styled/Container";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div>
       <Global />
-      {/* <Heading>Business Project</Heading> */}
+      <Heading>Business Project</Heading>
       <Switch>
         <Route path="/home">
+          <NavBar />
           <HomePage />
         </Route>
         <Route path="/login">
+          <NavBar />
           <FormSection>
             <LoginPage />
           </FormSection>
         </Route>
         <Route path="/">
+          <NavBar />
           <FormSection>
             <RegisterPage />
           </FormSection>

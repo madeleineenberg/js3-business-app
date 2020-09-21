@@ -58,8 +58,17 @@ export default class {
     });
   }
 
+  async createCustomer(payload) {
+    const url = `${ROOT_URL}api/v1/customers`;
+    return fetch(url, {
+      method: "POST",
+      headers: this.getPrivateHeaders(),
+      body: JSON.stringify(payload),
+    });
+  }
+
   setToken(token) {
-    localStorage.setItem("BUISNESS_TOKEN", token);
+    localStorage.setItem("BUSINESS_TOKEN", token);
   }
 
   getToken() {
