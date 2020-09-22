@@ -13,7 +13,6 @@ function App() {
   return (
     <div>
       <Global />
-      <Heading>Business Project</Heading>
       <Switch>
         <Route path="/home">
           <NavBar />

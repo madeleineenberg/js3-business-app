@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Nav, NavList, NavItem, NavLink } from "../styled/Nav";
+import { Logo } from "../styled/Heading";
 
 export default function NavBar({ children }) {
   return (
     <Nav>
+      <Logo>Business Project</Logo>
       <NavList>
         <NavItem>
           <NavLink to="/">HOME</NavLink>

@@ -25,3 +25,13 @@ export const SubTitle = styled.h2`
   padding: 10px;
   color: ${(props) => props.color || "#212121"};
 `;
+
+export const Logo = styled.span`
+  color: rgb(240, 151, 151);
+  font-weight: 800;
+  font-size: 26px;
+  position: absolute;
+  top: 12px;
+  left: 35px;
+  font-style: italic;
+`;

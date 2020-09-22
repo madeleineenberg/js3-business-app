@@ -8,7 +8,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 250px;
+  margin-top: 200px;
 `;
 
 export const FormSection = styled.section`
