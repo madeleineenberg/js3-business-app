@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserKit from "../data/UserKit";
+import { Link } from "react-router-dom";
 import { CustomerContext } from "../contexts/CustomerContext";
 import CreateCustomer from "./CreateCustomer";
 
@@ -16,7 +17,7 @@ export default function GetCustomers() {
       .getCustomerList()
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.results);
+        console.log(data);
         setCustomerList(data.results);
       });
   }
@@ -33,7 +34,12 @@ export default function GetCustomers() {
             customerList.map((customerItem) => {
               return (
                 <div key={customerItem.id}>
-                  <p>Customer: {customerItem.name}</p>
+                  <p>
+                    Customer:{" "}
+                    <Link to={`/customer/${customerItem.id}`}>
+                      {customerItem.name}
+                    </Link>
+                  </p>
                   <p>Organisation number: {customerItem.organisationNr}</p>
                   <p>Reference: {customerItem.reference}</p>
                   <hr />
