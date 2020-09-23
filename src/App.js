@@ -5,7 +5,6 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 //style
 import { Global } from "./styled/Global";
-import { Heading } from "./styled/Heading";
 import { FormSection } from "./styled/Container";
 import NavBar from "./components/NavBar";
 
