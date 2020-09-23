@@ -67,6 +67,21 @@ export default class {
     });
   }
 
+  async getCustomerDetail(id) {
+    const url = `${ROOT_URL}api/v1/customers/${id}/`;
+    return fetch(url, {
+      headers: this.getPrivateHeaders(),
+    });
+  }
+
+  async deleteCustomer(id) {
+    const url = `${ROOT_URL}api/v1/customers/${id}/`;
+    return fetch(url, {
+      method: "DELETE",
+      headers: this.getPrivateHeaders(),
+    });
+  }
+
   setToken(token) {
     localStorage.setItem("BUSINESS_TOKEN", token);
   }
