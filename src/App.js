@@ -7,12 +7,24 @@ import RegisterPage from "./pages/RegisterPage";
 import { Global } from "./styled/Global";
 import { FormSection } from "./styled/Container";
 import NavBar from "./components/NavBar";
+import CustomerDetailPage from "./pages/CustomerDetailPage";
 
 function App() {
   return (
     <div>
       <Global />
       <Switch>
+        <Route
+          path="/customer/:id"
+          render={(props) => {
+            return (
+              <>
+                <NavBar />
+                <CustomerDetailPage {...props} />
+              </>
+            );
+          }}
+        ></Route>
         <Route path="/home">
           <NavBar />
           <HomePage />
