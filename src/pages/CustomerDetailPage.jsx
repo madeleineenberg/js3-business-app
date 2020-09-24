@@ -11,7 +11,7 @@ export default function CustomerDetailPage(props) {
   const history = useHistory();
 
   useEffect(() => {
-    getCustomerDetail();
+    getCustomerDetail(); // eslint-disable-next-line
   }, []);
 
   function getCustomerDetail() {

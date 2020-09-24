@@ -82,6 +82,13 @@ export default class {
     });
   }
 
+  async getUserInfo() {
+    const url = `${ROOT_URL}api/v1/me`;
+    return fetch(url, {
+      headers: this.getPrivateHeaders(),
+    });
+  }
+
   setToken(token) {
     localStorage.setItem("BUSINESS_TOKEN", token);
   }

@@ -9,7 +9,7 @@ export default function GetCustomers() {
   const [customerList, setCustomerList] = useState([]);
 
   useEffect(() => {
-    getCustomerList();
+    getCustomerList(); // eslint-disable-next-line
   }, []);
 
   function getCustomerList() {
