@@ -22,7 +22,7 @@ export default function LoginForm() {
 
   const [uid, setUid] = useState(urlParameters.get("uid"));
   const [token, setToken] = useState(urlParameters.get("token"));
-  console.log(uid, token);
+  // console.log(uid, token);
 
   function handleLogin() {
     userKit

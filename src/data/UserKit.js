@@ -82,6 +82,15 @@ export default class {
     });
   }
 
+  async updateCustomer(payload, id) {
+    const url = `${ROOT_URL}api/v1/customers/${id}/`;
+    return fetch(url, {
+      method: "PATCH",
+      headers: this.getPrivateHeaders(),
+      body: JSON.stringify(payload),
+    });
+  }
+
   async getUserInfo() {
     const url = `${ROOT_URL}api/v1/me`;
     return fetch(url, {

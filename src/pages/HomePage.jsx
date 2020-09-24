@@ -1,6 +1,10 @@
 import React from "react";
+
+//Components
 import GetCustomers from "../components/GetCustomers";
 import UserInfo from "../components/UserInfo";
+
+//styles
 import { Container } from "../styled/Container";
 import { SubTitle } from "../styled/Heading";
 
