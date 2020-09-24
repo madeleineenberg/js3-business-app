@@ -4,7 +4,7 @@ import { CustomerContext } from "../contexts/CustomerContext";
 import UserKit from "../data/UserKit";
 
 export default function CreateCustomer() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const { getCustomerList } = useContext(CustomerContext);
   const userKit = new UserKit();
 
@@ -40,7 +40,18 @@ export default function CreateCustomer() {
           placeholder="Organisation Number"
           ref={register}
         />
-        <input name="vatNr" placeholder="VatNr" ref={register} />
+        <input
+          name="vatNr"
+          placeholder="VatNr"
+          ref={register({
+            required: true,
+            pattern: {
+              value: /^(SE[0-9]{12}$)/i,
+              message: "Need to start with SE",
+            },
+          })}
+        />
+        {errors.vatNr && <p>{errors.vatNr.message}</p>}
         <input name="reference" placeholder="Reference" ref={register} />
         <input name="paymentTerm" placeholder="Payment Term" ref={register} />
         <input name="website" placeholder="Website" ref={register} />
