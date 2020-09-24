@@ -17,7 +17,7 @@ export default function GetCustomers() {
       .getCustomerList()
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log(data.results);
         setCustomerList(data.results);
       });
   }
@@ -30,7 +30,9 @@ export default function GetCustomers() {
         <div>
           {/* <button onClick={getCustomerList}>Get My Customers</button> */}
           <h2>My Customers</h2>
-          {customerList &&
+          {customerList.length === 0 ? (
+            <p>You have no customers</p>
+          ) : (
             customerList.map((customerItem) => {
               return (
                 <div key={customerItem.id}>
@@ -45,7 +47,8 @@ export default function GetCustomers() {
                   <hr />
                 </div>
               );
-            })}
+            })
+          )}
         </div>
         <CreateCustomer />
       </CustomerContext.Provider>
