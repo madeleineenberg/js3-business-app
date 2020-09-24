@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from "react";
-import UserKit from "../data/UserKit";
+import React, { useContext, useEffect } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 export default function UserInfo() {
-  const [onlineUser, setOnlineUser] = useState([]);
-  const userKit = new UserKit();
+  const { onlineUser, setOnlineUser, getUserInfo } = useContext(UserContext);
 
   useEffect(() => {
-    getUserInfo(); // eslint-disable-next-line
+    setOnlineUser(getUserInfo()); // eslint-disable-next-line
   }, []);
-
-  function getUserInfo() {
-    userKit
-      .getUserInfo()
-      .then((res) => res.json())
-      .then((data) => {
-        setOnlineUser(data);
-      });
-  }
   return (
     <div>
       {onlineUser && (
