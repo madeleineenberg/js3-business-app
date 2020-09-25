@@ -1,35 +1,27 @@
-import React, { useState, useEffect } from "react";
-import UserKit from "../data/UserKit";
+import React, { useEffect, useContext } from "react";
+
 import { Link } from "react-router-dom";
 import { CustomerContext } from "../contexts/CustomerContext";
-import CreateCustomer from "./CreateCustomer";
+
+//styles
+import { GridBox } from "../styled/Grid";
+import { SubTitle } from "../styled/Heading";
 
 export default function GetCustomers() {
-  const userKit = new UserKit();
-  const [customerList, setCustomerList] = useState([]);
+  const { customerList, setCustomerList, getCustomerList } = useContext(
+    CustomerContext
+  );
 
   useEffect(() => {
-    getCustomerList(); // eslint-disable-next-line
+    setCustomerList(getCustomerList()); // eslint-disable-next-line
+    console.log(customerList);
   }, []);
 
-  function getCustomerList() {
-    userKit
-      .getCustomerList()
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.results);
-        setCustomerList(data.results);
-      });
-  }
-
   return (
-    <div>
-      <CustomerContext.Provider
-        value={{ getCustomerList, customerList, setCustomerList }}
-      >
+    <GridBox column="span 2">
+      {customerList && (
         <div>
-          {/* <button onClick={getCustomerList}>Get My Customers</button> */}
-          <h2>My Customers</h2>
+          <SubTitle>My Customers</SubTitle>
           {customerList.length === 0 ? (
             <p>You have no customers</p>
           ) : (
@@ -37,7 +29,7 @@ export default function GetCustomers() {
               return (
                 <div key={customerItem.id}>
                   <p>
-                    Customer:{" "}
+                    Customer:
                     <Link to={`/customer/${customerItem.id}`}>
                       {customerItem.name}
                     </Link>
@@ -50,8 +42,7 @@ export default function GetCustomers() {
             })
           )}
         </div>
-        <CreateCustomer />
-      </CustomerContext.Provider>
-    </div>
+      )}
+    </GridBox>
   );
 }

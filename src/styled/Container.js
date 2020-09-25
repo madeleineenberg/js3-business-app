@@ -19,3 +19,8 @@ export const FormSection = styled.section`
   left: 0;
   background: linear-gradient(180deg, #845ec2, #d65db1, #ff6f91, #ff9671);
 `;
+
+export const ContainerHome = styled(FormSection)`
+  background: whitesmoke;
+  top: 60px;
+`;

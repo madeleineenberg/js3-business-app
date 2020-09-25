@@ -14,7 +14,7 @@ export default function CustomerDetailPage(props) {
   const customerId = props.match.params.id;
   const userKit = new UserKit();
   const history = useHistory();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   useEffect(() => {
     getCustomerDetail(); // eslint-disable-next-line
@@ -90,8 +90,15 @@ export default function CustomerDetailPage(props) {
             name="vatNr"
             defaultValue={customer.vatNr}
             placeholder="VatNr"
-            ref={register}
+            ref={register({
+              required: true,
+              pattern: {
+                value: /^(SE[0-9]{12}$)/i,
+                message: "Need to start with SE and ",
+              },
+            })}
           />
+          {errors.vatNr && <p>{errors.vatNr.message}</p>}
           <input
             name="reference"
             defaultValue={customer.reference}

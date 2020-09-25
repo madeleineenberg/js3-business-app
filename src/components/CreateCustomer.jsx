@@ -3,6 +3,11 @@ import { useForm } from "react-hook-form";
 import { CustomerContext } from "../contexts/CustomerContext";
 import UserKit from "../data/UserKit";
 
+//styles
+import { GridBox } from "../styled/Grid";
+import { Label, Input, FormCreateCustomer } from "../styled/Form";
+import { SubTitle } from "../styled/Heading";
+
 export default function CreateCustomer() {
   const { register, handleSubmit, errors } = useForm();
   const { getCustomerList } = useContext(CustomerContext);
@@ -30,17 +35,19 @@ export default function CreateCustomer() {
   };
 
   return (
-    <div>
-      <h2>Create New Customer</h2>
-
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input name="customerName" placeholder="Customer Name" ref={register} />
-        <input
+    <GridBox color="#212121">
+      <FormCreateCustomer onSubmit={handleSubmit(onSubmit)}>
+        <SubTitle color="#d65db1">Create New Customer</SubTitle>
+        <Label>Customer Name</Label>
+        <Input name="customerName" placeholder="Customer Name" ref={register} />
+        <Label>Organisation Number</Label>
+        <Input
           name="organisationNr"
           placeholder="Organisation Number"
           ref={register}
         />
-        <input
+        <Label>Vat Number</Label>
+        <Input
           name="vatNr"
           placeholder="VatNr"
           ref={register({
@@ -52,13 +59,18 @@ export default function CreateCustomer() {
           })}
         />
         {errors.vatNr && <p>{errors.vatNr.message}</p>}
-        <input name="reference" placeholder="Reference" ref={register} />
-        <input name="paymentTerm" placeholder="Payment Term" ref={register} />
-        <input name="website" placeholder="Website" ref={register} />
-        <input name="email" placeholder="email" ref={register} />
-        <input name="phoneNumber" placeholder="Phone Number" ref={register} />
+        <Label>Reference</Label>
+        <Input name="reference" placeholder="Reference" ref={register} />
+        <Label>Payment Term</Label>
+        <Input name="paymentTerm" placeholder="Payment Term" ref={register} />
+        <Label>Website</Label>
+        <Input name="website" placeholder="Website" ref={register} />
+        <Label>Email</Label>
+        <Input name="email" placeholder="email" ref={register} />
+        <Label>Phone Number</Label>
+        <Input name="phoneNumber" placeholder="Phone Number" ref={register} />
         <input type="Submit" />
-      </form>
-    </div>
+      </FormCreateCustomer>
+    </GridBox>
   );
 }

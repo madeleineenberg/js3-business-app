@@ -19,7 +19,7 @@ export const Input = styled.input`
   padding: 20px;
   border-radius: 5px;
   border-bottom: 2px solid #d65db1;
-  background-color: #313131;
+  background-color: ${(props) => props.color || "#313131"};
 
   &:focus {
     background-color: #cecece;
@@ -30,5 +30,13 @@ export const Input = styled.input`
 export const Label = styled.label`
   font-style: italic;
   font-size: 14px;
-  color: #ccc;
+  color: ${(props) => props.color || "#ccc"};
+`;
+
+export const FormCreateCustomer = styled.form`
+  display: flex;
+  flex-direction: column;
+  background-color: #212121;
+  border-radius: 10px;
+  padding: 50px 60px;
 `;

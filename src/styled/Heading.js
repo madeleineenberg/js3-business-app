@@ -2,14 +2,11 @@ import styled from "styled-components";
 
 export const Heading = styled.h1`
   text-align: center;
-  padding: 50px 30px;
-  font-size: 80px;
-  color: rgb(240, 151, 151);
+  padding: 40px 30px;
+  font-size: 50px;
+  color: #212121;
   font-weight: 900;
-  z-index: 10;
-  position: absolute;
-  top: 20px;
-  left: 22%;
+  font-style: italic;
 
   @media (max-width: 500px) {
     font-size: 52px;

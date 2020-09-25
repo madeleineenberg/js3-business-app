@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
+import { GridBox } from "../styled/Grid";
+import { SubTitle } from "../styled/Heading";
 
 export default function UserInfo() {
   const { onlineUser, setOnlineUser, getUserInfo } = useContext(UserContext);
@@ -8,15 +10,17 @@ export default function UserInfo() {
     setOnlineUser(getUserInfo()); // eslint-disable-next-line
   }, []);
   return (
-    <div>
+    <GridBox column="1 / span 4" color="peachpuff">
       {onlineUser && (
         <div>
-          <h2>Your Details</h2>
-          <p>{onlineUser.firstName}</p>
-          <p>{onlineUser.lastName}</p>
-          <p>{onlineUser.email}</p>
+          <SubTitle>Your Details</SubTitle>
+          <p>
+            Name: {onlineUser.firstName} {onlineUser.lastName}
+          </p>
+
+          <p>Email: {onlineUser.email}</p>
         </div>
       )}
-    </div>
+    </GridBox>
   );
 }
