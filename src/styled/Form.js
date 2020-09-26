@@ -11,6 +11,7 @@ export const Form = styled.div`
     0 16px 16px rgba(0, 0, 0, 0.12);
 
   margin-top: 100px;
+  margin-bottom: 50px;
 `;
 
 export const Input = styled.input`
@@ -20,7 +21,7 @@ export const Input = styled.input`
   border: none;
   padding: 20px;
   border-radius: 5px;
-  border-bottom: 2px solid #d65db1;
+  border-bottom: 2px solid ${(props) => props.border || "#d65db1"};
   background-color: ${(props) => props.color || "#313131"};
 
   &:focus {

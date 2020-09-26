@@ -3,13 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* margin-top: 200px; */
 `;
 
 export const FormSection = styled.section`
@@ -27,8 +25,8 @@ export const FlexContainer = styled.div`
 
 export const Image = styled.img`
   position: absolute;
-  top: -30px;
-  right: 45px;
+  top: 10px;
+  right: 50px;
   /* width: 150px;
   height: 150px; */
 `;

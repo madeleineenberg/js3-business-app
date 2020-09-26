@@ -4,7 +4,7 @@ import UserKit from "../data/UserKit";
 //style
 import { Form, Input, Label } from "../styled/Form";
 import { SubmitButton } from "../styled/Buttons";
-import { SubTitle } from "../styled/Heading";
+import { MediumHeading } from "../styled/Heading";
 
 export default function RegisterForm() {
   const userKit = new UserKit();
@@ -54,8 +54,8 @@ export default function RegisterForm() {
 
   return (
     <Form>
-      <SubTitle color="#ccc">Register</SubTitle>
-      <p>Enter details to register</p>
+      <MediumHeading color="#ccc">Register</MediumHeading>
+
       {/* ETT ANNAT SÄTT ATT RENDERA FLERA INPUT PÅ ETT KORTARE SÄTT */}
       {inputObjects.map((inputItem, index) => {
         return renderInput(index, inputItem[0], inputItem[1], inputItem[2]);

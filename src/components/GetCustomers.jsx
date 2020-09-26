@@ -5,8 +5,14 @@ import { CustomerContext } from "../contexts/CustomerContext";
 
 //styles
 import { GridBox } from "../styled/Grid";
-import { SubTitle, Paragraph, Span } from "../styled/Heading";
-import { TextWrapper } from "../styled/Container";
+import {
+  SubTitle,
+  CustomerInfo,
+  BoldText,
+  Paragraph,
+  CustomerLink,
+} from "../styled/Heading";
+import { Ul } from "../styled/List";
 
 export default function GetCustomers() {
   const { customerList, setCustomerList, getCustomerList } = useContext(
@@ -28,24 +34,28 @@ export default function GetCustomers() {
           ) : (
             customerList.map((customerItem) => {
               return (
-                <TextWrapper key={customerItem.id}>
-                  <Span>
-                    Customer:
-                    <Paragraph>
-                      <Link to={`/customer/${customerItem.id}`}>
-                        {customerItem.name}
-                      </Link>
-                    </Paragraph>
-                  </Span>
-                  <Span>
-                    Organisation number:{" "}
-                    <Paragraph>{customerItem.organisationNr}</Paragraph>
-                  </Span>
-                  <Span>
-                    Reference: <Paragraph>{customerItem.reference}</Paragraph>
-                  </Span>
-                  <hr />
-                </TextWrapper>
+                <Ul key={customerItem.id}>
+                  <li>
+                    <BoldText color="rgb(240, 151, 151)">
+                      Customer:
+                      <CustomerInfo>
+                        <CustomerLink to={`/customer/${customerItem.id}`}>
+                          {" "}
+                          {customerItem.name}
+                        </CustomerLink>
+                      </CustomerInfo>
+                    </BoldText>
+
+                    <BoldText color="rgb(240, 151, 151)">
+                      Organisation number:{" "}
+                      <CustomerInfo>{customerItem.organisationNr}</CustomerInfo>
+                    </BoldText>
+                    <BoldText color="rgb(240, 151, 151)">
+                      Reference:{" "}
+                      <CustomerInfo>{customerItem.reference}</CustomerInfo>
+                    </BoldText>
+                  </li>
+                </Ul>
               );
             })
           )}

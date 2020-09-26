@@ -7,6 +7,7 @@ import UserKit from "../data/UserKit";
 import { GridBox } from "../styled/Grid";
 import { Label, Input, FormCreateCustomer } from "../styled/Form";
 import { SubTitle } from "../styled/Heading";
+import { CreateButton } from "../styled/Buttons";
 
 export default function CreateCustomer() {
   const { register, handleSubmit, errors } = useForm();
@@ -69,7 +70,7 @@ export default function CreateCustomer() {
         <Input name="email" placeholder="email" ref={register} />
         <Label>Phone Number</Label>
         <Input name="phoneNumber" placeholder="Phone Number" ref={register} />
-        <input type="Submit" />
+        <CreateButton type="Submit" />
       </FormCreateCustomer>
     </GridBox>
   );

@@ -1,13 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
 import { GridBox } from "../styled/Grid";
-import { SubTitle, Paragraph, Span } from "../styled/Heading";
-import {
-  TextWrapper,
-  FlexContainer,
-  ImageWrapper,
-  Image,
-} from "../styled/Container";
+import { SubTitle, Paragraph, Span, CustomerInfo } from "../styled/Heading";
+import { TextWrapper, FlexContainer, Image } from "../styled/Container";
 
 export default function UserInfo() {
   const { onlineUser, setOnlineUser, getUserInfo } = useContext(UserContext);
@@ -19,7 +14,10 @@ export default function UserInfo() {
     <>
       {onlineUser && (
         <GridBox column="1 / 5" row="1 / 2">
-          <SubTitle color="peachpuff">User Details</SubTitle>
+          <SubTitle color="peachpuff">
+            User Details{" "}
+            <CustomerInfo>Welcome, {onlineUser.firstName}</CustomerInfo>
+          </SubTitle>
           <FlexContainer>
             <TextWrapper>
               <Paragraph>

@@ -5,7 +5,7 @@ import ActivateUser from "./ActivateUser";
 //styles
 import { Container } from "../styled/Container";
 import { Form, Input, Label } from "../styled/Form";
-import { SubTitle } from "../styled/Heading";
+import { MediumHeading } from "../styled/Heading";
 import { SubmitButton } from "../styled/Buttons";
 
 export default function LoginForm() {
@@ -46,7 +46,7 @@ export default function LoginForm() {
         />
       ) : (
         <Form>
-          <SubTitle color="#ccc">Login</SubTitle>
+          <MediumHeading color="#ccc">Login</MediumHeading>
           <Label>Email</Label>
           <Input
             placeholder="Email"

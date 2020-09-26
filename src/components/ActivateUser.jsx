@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import UserKit from "../data/UserKit";
 import { SubmitButton } from "../styled/Buttons";
-import { SubTitle } from "../styled/Heading";
+import { MediumHeading } from "../styled/Heading";
 import { Container } from "../styled/Container";
 
 export default function ActivateUser({ uid, setUid, token, setToken }) {
@@ -18,7 +18,7 @@ export default function ActivateUser({ uid, setUid, token, setToken }) {
   }
   return (
     <Container>
-      <SubTitle>Activate Account</SubTitle>
+      <MediumHeading>Activate Account</MediumHeading>
       <SubmitButton onClick={handleActivateUser}>
         Activate Your Account
       </SubmitButton>

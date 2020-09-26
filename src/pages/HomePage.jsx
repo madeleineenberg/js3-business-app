@@ -36,19 +36,20 @@ export default function HomePage() {
   }
 
   return (
-    <Container>
-      <CustomerContext.Provider
-        value={{ getCustomerList, customerList, setCustomerList }}
-      >
+    <>
+      <Container>
         <Heading>Dashboard </Heading>
-        <Paragraph>Welcome, {onlineUser && onlineUser.firstName}</Paragraph>
-        <Grid>
-          <UserInfo />
-          <GetCustomers />
+        <CustomerContext.Provider
+          value={{ getCustomerList, customerList, setCustomerList }}
+        >
+          <Grid>
+            <UserInfo />
+            <GetCustomers />
 
-          <CreateCustomer />
-        </Grid>
-      </CustomerContext.Provider>
-    </Container>
+            <CreateCustomer />
+          </Grid>
+        </CustomerContext.Provider>
+      </Container>
+    </>
   );
 }

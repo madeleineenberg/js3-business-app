@@ -25,4 +25,9 @@ export const NavLink = styled(Link)`
   text-decoration: none;
   color: #ccc;
   font-weight: 600;
+  transition: 0.3s ease;
+
+  &:hover {
+    color: hotpink;
+  }
 `;

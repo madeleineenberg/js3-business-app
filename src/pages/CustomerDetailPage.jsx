@@ -1,13 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import UserInfo from "../components/UserInfo";
 
 //styles
-import { SubTitle } from "../styled/Heading";
-import { Container } from "../styled/Container";
-import { useHistory } from "react-router-dom";
+import { SubTitle, Heading, CustomerInfo, BoldText } from "../styled/Heading";
+import { Container, TextWrapper } from "../styled/Container";
+import { Grid, GridBox } from "../styled/Grid";
+import { Label, Input, FormCreateCustomer } from "../styled/Form";
+import { CreateButton, SubmitButton } from "../styled/Buttons";
+import { Ul } from "../styled/List";
+
 //data
 import UserKit from "../data/UserKit";
-import UserInfo from "../components/UserInfo";
 
 export default function CustomerDetailPage(props) {
   const [customer, setCustomer] = useState([]);
@@ -54,84 +59,135 @@ export default function CustomerDetailPage(props) {
 
   return (
     <Container>
+      <Heading>Customer Detail</Heading>
       {customer && (
-        <div>
-          <SubTitle>{customer.name}</SubTitle>
-          <p>Name: {customer.name}</p>
-          <p>Organisation Number: {customer.organisationNr}</p>
-          <p>VatNr: {customer.vatNr}</p>
-          <p>Reference: {customer.reference}</p>
-          <p>Payment term: {customer.paymentTerm}</p>
-          <p>Website: {customer.website}</p>
-          <p>Email: {customer.email}</p>
-          <p>Phone Number: {customer.phoneNumber}</p>
-          <button onClick={handleDelete}>Delete Customer</button>
-          <div>
-            <UserInfo />
-          </div>
-        </div>
+        <Grid>
+          <UserInfo />
+          <GridBox column="1 / span 2">
+            <SubTitle color="rgb(240, 151, 151)">Update Customer</SubTitle>
+            <FormCreateCustomer onSubmit={handleSubmit(onSubmit)}>
+              <Label>Customer Name</Label>
+              <Input
+                border="rgb(240, 151, 151)"
+                name="customerName"
+                defaultValue={customer.name}
+                placeholder="Customer Name"
+                ref={register}
+              />
+              <Label>Organisation Number</Label>
+              <Input
+                border="rgb(240, 151, 151)"
+                name="organisationNr"
+                defaultValue={customer.organisationNr}
+                placeholder="Organisation Number"
+                ref={register}
+              />
+              <Label>Vat Number</Label>
+              <Input
+                border="rgb(240, 151, 151)"
+                name="vatNr"
+                defaultValue={customer.vatNr}
+                placeholder="VatNr"
+                ref={register({
+                  required: true,
+                  pattern: {
+                    value: /^(SE[0-9]{12}$)/i,
+                    message: "Need to start with SE and ",
+                  },
+                })}
+              />
+              {errors.vatNr && <p>{errors.vatNr.message}</p>}
+              <Label>Reference</Label>
+              <Input
+                border="rgb(240, 151, 151)"
+                name="reference"
+                defaultValue={customer.reference}
+                placeholder="Reference"
+                ref={register}
+              />
+              <Label>Payment Term</Label>
+              <Input
+                border="rgb(240, 151, 151)"
+                name="paymentTerm"
+                defaultValue={customer.paymentTerm}
+                placeholder="Payment Term"
+                ref={register}
+              />
+              <Label>Website</Label>
+              <Input
+                border="rgb(240, 151, 151)"
+                name="website"
+                defaultValue={customer.website}
+                placeholder="Website"
+                ref={register}
+              />
+              <Label>Email</Label>
+              <Input
+                border="rgb(240, 151, 151)"
+                name="email"
+                defaultValue={customer.email}
+                placeholder="email"
+                ref={register}
+              />
+              <Label>Phone Number</Label>
+              <Input
+                border="rgb(240, 151, 151)"
+                name="phoneNumber"
+                defaultValue={customer.phoneNumber}
+                placeholder="Phone Number"
+                ref={register}
+              />
+              <CreateButton
+                hover="rgb(240, 151, 151)"
+                border="rgb(240, 151, 151)"
+                type="Submit"
+                value="Update"
+              />
+            </FormCreateCustomer>
+          </GridBox>
+          <GridBox column="3 /span 2">
+            <SubTitle color="#d65db1">{customer.name}</SubTitle>
+            <Ul>
+              <li>
+                <BoldText color="#d65db1">
+                  Name: <CustomerInfo>{customer.name}</CustomerInfo>
+                </BoldText>
+                <BoldText color="#d65db1">
+                  Organisation Number:{" "}
+                  <CustomerInfo>{customer.organisationNr}</CustomerInfo>
+                </BoldText>
+                <BoldText color="#d65db1">
+                  VatNr: <CustomerInfo>{customer.vatNr}</CustomerInfo>
+                </BoldText>
+                <BoldText color="#d65db1">
+                  Reference: <CustomerInfo>{customer.reference}</CustomerInfo>
+                </BoldText>
+                <BoldText color="#d65db1">
+                  Payment term:{" "}
+                  <CustomerInfo>{customer.paymentTerm}</CustomerInfo>
+                </BoldText>
+                <BoldText color="#d65db1">
+                  Website: <CustomerInfo>{customer.website}</CustomerInfo>
+                </BoldText>
+                <BoldText color="#d65db1">
+                  Email: <CustomerInfo>{customer.email}</CustomerInfo>
+                </BoldText>
+                <BoldText color="#d65db1">
+                  Phone Number:
+                  <CustomerInfo> {customer.phoneNumber}</CustomerInfo>
+                </BoldText>
+              </li>
+              <Container>
+                <TextWrapper>
+                  <SubmitButton onClick={handleDelete}>
+                    Delete Customer
+                  </SubmitButton>
+                </TextWrapper>
+              </Container>
+            </Ul>
+          </GridBox>
+        </Grid>
       )}
-      <div>
-        <h2>Update Customer</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            name="customerName"
-            defaultValue={customer.name}
-            placeholder="Customer Name"
-            ref={register}
-          />
-          <input
-            name="organisationNr"
-            defaultValue={customer.organisationNr}
-            placeholder="Organisation Number"
-            ref={register}
-          />
-          <input
-            name="vatNr"
-            defaultValue={customer.vatNr}
-            placeholder="VatNr"
-            ref={register({
-              required: true,
-              pattern: {
-                value: /^(SE[0-9]{12}$)/i,
-                message: "Need to start with SE and ",
-              },
-            })}
-          />
-          {errors.vatNr && <p>{errors.vatNr.message}</p>}
-          <input
-            name="reference"
-            defaultValue={customer.reference}
-            placeholder="Reference"
-            ref={register}
-          />
-          <input
-            name="paymentTerm"
-            defaultValue={customer.paymentTerm}
-            placeholder="Payment Term"
-            ref={register}
-          />
-          <input
-            name="website"
-            defaultValue={customer.website}
-            placeholder="Website"
-            ref={register}
-          />
-          <input
-            name="email"
-            defaultValue={customer.email}
-            placeholder="email"
-            ref={register}
-          />
-          <input
-            name="phoneNumber"
-            defaultValue={customer.phoneNumber}
-            placeholder="Phone Number"
-            ref={register}
-          />
-          <button type="Submit">Update</button>
-        </form>
-      </div>
     </Container>
   );
 }
