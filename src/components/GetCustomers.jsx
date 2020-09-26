@@ -5,7 +5,8 @@ import { CustomerContext } from "../contexts/CustomerContext";
 
 //styles
 import { GridBox } from "../styled/Grid";
-import { SubTitle } from "../styled/Heading";
+import { SubTitle, Paragraph, Span } from "../styled/Heading";
+import { TextWrapper } from "../styled/Container";
 
 export default function GetCustomers() {
   const { customerList, setCustomerList, getCustomerList } = useContext(
@@ -18,30 +19,37 @@ export default function GetCustomers() {
   }, []);
 
   return (
-    <GridBox column="span 2">
+    <GridBox column="1 / 3">
       {customerList && (
-        <div>
-          <SubTitle>My Customers</SubTitle>
+        <>
+          <SubTitle color="rgb(240, 151, 151)">My Customers</SubTitle>
           {customerList.length === 0 ? (
-            <p>You have no customers</p>
+            <Paragraph>You have no customers</Paragraph>
           ) : (
             customerList.map((customerItem) => {
               return (
-                <div key={customerItem.id}>
-                  <p>
+                <TextWrapper key={customerItem.id}>
+                  <Span>
                     Customer:
-                    <Link to={`/customer/${customerItem.id}`}>
-                      {customerItem.name}
-                    </Link>
-                  </p>
-                  <p>Organisation number: {customerItem.organisationNr}</p>
-                  <p>Reference: {customerItem.reference}</p>
+                    <Paragraph>
+                      <Link to={`/customer/${customerItem.id}`}>
+                        {customerItem.name}
+                      </Link>
+                    </Paragraph>
+                  </Span>
+                  <Span>
+                    Organisation number:{" "}
+                    <Paragraph>{customerItem.organisationNr}</Paragraph>
+                  </Span>
+                  <Span>
+                    Reference: <Paragraph>{customerItem.reference}</Paragraph>
+                  </Span>
                   <hr />
-                </div>
+                </TextWrapper>
               );
             })
           )}
-        </div>
+        </>
       )}
     </GridBox>
   );

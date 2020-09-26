@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export const Nav = styled.nav`
   background-color: #212121;
-  position: absolute;
+  /* position: absolute;
   top: 0;
-  left: 0%;
-  min-width: 100vw;
+  left: 0; */
+  width: 100%;
   z-index: 10;
   padding: 20px;
 `;

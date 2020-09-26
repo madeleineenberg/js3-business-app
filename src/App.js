@@ -28,7 +28,7 @@ function App() {
       });
   }
   return (
-    <div>
+    <>
       <Global />
       <UserContext.Provider value={{ onlineUser, setOnlineUser, getUserInfo }}>
         <Switch>
@@ -45,7 +45,9 @@ function App() {
           ></Route>
           <Route path="/home">
             <NavBar />
-            <HomePage />
+            <FormSection>
+              <HomePage />
+            </FormSection>
           </Route>
           <Route path="/login">
             <NavBar />
@@ -61,7 +63,7 @@ function App() {
           </Route>
         </Switch>
       </UserContext.Provider>
-    </div>
+    </>
   );
 }
 

@@ -2,25 +2,33 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  padding: 20px;
+  height: 100%;
+  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 200px;
+  /* margin-top: 200px; */
 `;
 
 export const FormSection = styled.section`
+  height: 100%;
   min-height: 100vh;
-  min-width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: linear-gradient(180deg, #845ec2, #d65db1, #ff6f91, #ff9671);
 `;
 
-export const ContainerHome = styled(FormSection)`
-  background: whitesmoke;
-  top: 60px;
+export const TextWrapper = styled.div`
+  padding: 30px;
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+`;
+
+export const Image = styled.img`
+  position: absolute;
+  top: -30px;
+  right: 45px;
+  /* width: 150px;
+  height: 150px; */
 `;

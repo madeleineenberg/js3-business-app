@@ -8,8 +8,8 @@ import GetCustomers from "../components/GetCustomers";
 import UserInfo from "../components/UserInfo";
 
 //styles
-import { ContainerHome } from "../styled/Container";
-import { SubTitle, Heading } from "../styled/Heading";
+import { Container } from "../styled/Container";
+import { Paragraph, Heading } from "../styled/Heading";
 import CreateCustomer from "../components/CreateCustomer";
 
 //styles
@@ -36,11 +36,12 @@ export default function HomePage() {
   }
 
   return (
-    <ContainerHome>
+    <Container>
       <CustomerContext.Provider
         value={{ getCustomerList, customerList, setCustomerList }}
       >
-        <Heading>Welcome {onlineUser && onlineUser.firstName}</Heading>
+        <Heading>Dashboard </Heading>
+        <Paragraph>Welcome, {onlineUser && onlineUser.firstName}</Paragraph>
         <Grid>
           <UserInfo />
           <GetCustomers />
@@ -48,6 +49,6 @@ export default function HomePage() {
           <CreateCustomer />
         </Grid>
       </CustomerContext.Provider>
-    </ContainerHome>
+    </Container>
   );
 }

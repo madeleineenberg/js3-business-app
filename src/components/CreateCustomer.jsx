@@ -35,9 +35,9 @@ export default function CreateCustomer() {
   };
 
   return (
-    <GridBox color="#212121">
+    <GridBox column="3 /span 2" color="#212121">
+      <SubTitle color="#d65db1">Create New Customer</SubTitle>
       <FormCreateCustomer onSubmit={handleSubmit(onSubmit)}>
-        <SubTitle color="#d65db1">Create New Customer</SubTitle>
         <Label>Customer Name</Label>
         <Input name="customerName" placeholder="Customer Name" ref={register} />
         <Label>Organisation Number</Label>

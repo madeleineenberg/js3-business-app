@@ -26,7 +26,7 @@ export default function NavBar({ children }) {
         </NavItem>
         {token && (
           <NavItem>
-            <NavLink to="/home">HOME</NavLink>
+            <NavLink to="/home">DASHBOARD</NavLink>
           </NavItem>
         )}
       </NavList>
