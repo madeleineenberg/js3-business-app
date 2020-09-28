@@ -1,3 +1,9 @@
+EXTERNA PAKET ATT INSTALLERA
+
+- react-router-dom
+- styled-components
+- react-hook-form
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

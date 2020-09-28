@@ -14,7 +14,7 @@ import {
 import { Container, TextWrapper } from "../styled/Container";
 import { Grid, GridBox } from "../styled/Grid";
 import { Label, Input, FormCreateCustomer } from "../styled/Form";
-import { CreateButton, SubmitButton, DeleteButton } from "../styled/Buttons";
+import { CreateButton, DeleteButton } from "../styled/Buttons";
 import { Ul } from "../styled/List";
 
 //data
