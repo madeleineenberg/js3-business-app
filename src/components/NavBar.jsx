@@ -14,6 +14,10 @@ export default function NavBar({ children }) {
   function getToken() {
     setToken(userKit.getToken());
   }
+
+  function handleLogout() {
+    localStorage.clear();
+  }
   return (
     <Nav>
       <Logo>Business Project</Logo>
@@ -21,12 +25,21 @@ export default function NavBar({ children }) {
         <NavItem>
           <NavLink to="/">REGISTRATION</NavLink>
         </NavItem>
-        <NavItem>
-          <NavLink to="/login">LOGIN</NavLink>
-        </NavItem>
+        {!token && (
+          <NavItem>
+            <NavLink to="/login">LOGIN</NavLink>
+          </NavItem>
+        )}
         {token && (
           <NavItem>
             <NavLink to="/home">DASHBOARD</NavLink>
+          </NavItem>
+        )}
+        {token && (
+          <NavItem>
+            <NavLink to="/login" onClick={handleLogout}>
+              LOGOUT
+            </NavLink>
           </NavItem>
         )}
       </NavList>
