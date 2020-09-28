@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from "react";
 
-import { Link } from "react-router-dom";
 import { CustomerContext } from "../contexts/CustomerContext";
 
 //styles
@@ -13,6 +12,7 @@ import {
   CustomerLink,
 } from "../styled/Heading";
 import { Ul } from "../styled/List";
+import { TextWrapper } from "../styled/Container";
 
 export default function GetCustomers() {
   const { customerList, setCustomerList, getCustomerList } = useContext(
@@ -30,7 +30,9 @@ export default function GetCustomers() {
         <>
           <SubTitle color="rgb(240, 151, 151)">My Customers</SubTitle>
           {customerList.length === 0 ? (
-            <Paragraph>You have no customers</Paragraph>
+            <TextWrapper>
+              <Paragraph>You have no customers</Paragraph>
+            </TextWrapper>
           ) : (
             customerList.map((customerItem) => {
               return (

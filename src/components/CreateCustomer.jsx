@@ -6,7 +6,7 @@ import UserKit from "../data/UserKit";
 //styles
 import { GridBox } from "../styled/Grid";
 import { Label, Input, FormCreateCustomer } from "../styled/Form";
-import { SubTitle } from "../styled/Heading";
+import { SubTitle, ErrorMessage } from "../styled/Heading";
 import { CreateButton } from "../styled/Buttons";
 
 export default function CreateCustomer() {
@@ -54,16 +54,26 @@ export default function CreateCustomer() {
           ref={register({
             required: true,
             pattern: {
-              value: /^(SE[0-9]{12}$)/i,
-              message: "Need to start with SE",
+              value: /^(SE[0-9]{10}$)/i,
+              message: "Need to start with SE and include 10 digits",
             },
           })}
         />
-        {errors.vatNr && <p>{errors.vatNr.message}</p>}
+        {errors.vatNr && <ErrorMessage>{errors.vatNr.message}</ErrorMessage>}
         <Label>Reference</Label>
         <Input name="reference" placeholder="Reference" ref={register} />
         <Label>Payment Term</Label>
-        <Input name="paymentTerm" placeholder="Payment Term" ref={register} />
+        <Input
+          name="paymentTerm"
+          placeholder="Payment Term"
+          ref={register({
+            required: true,
+            min: 1,
+          })}
+        />
+        {errors.paymentTerm && (
+          <ErrorMessage>Need to include at least 1 digit</ErrorMessage>
+        )}
         <Label>Website</Label>
         <Input name="website" placeholder="Website" ref={register} />
         <Label>Email</Label>

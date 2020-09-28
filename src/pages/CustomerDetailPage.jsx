@@ -4,7 +4,13 @@ import { useHistory } from "react-router-dom";
 import UserInfo from "../components/UserInfo";
 
 //styles
-import { SubTitle, Heading, CustomerInfo, BoldText } from "../styled/Heading";
+import {
+  SubTitle,
+  Heading,
+  CustomerInfo,
+  BoldText,
+  ErrorMessage,
+} from "../styled/Heading";
 import { Container, TextWrapper } from "../styled/Container";
 import { Grid, GridBox } from "../styled/Grid";
 import { Label, Input, FormCreateCustomer } from "../styled/Form";
@@ -91,12 +97,14 @@ export default function CustomerDetailPage(props) {
                 ref={register({
                   required: true,
                   pattern: {
-                    value: /^(SE[0-9]{12}$)/i,
-                    message: "Need to start with SE and ",
+                    value: /^(SE[0-9]{10}$)/i,
+                    message: "Need to start with SE and include 10 digits ",
                   },
                 })}
               />
-              {errors.vatNr && <p>{errors.vatNr.message}</p>}
+              {errors.vatNr && (
+                <ErrorMessage>{errors.vatNr.message}</ErrorMessage>
+              )}
               <Label>Reference</Label>
               <Input
                 border="rgb(240, 151, 151)"
@@ -111,8 +119,14 @@ export default function CustomerDetailPage(props) {
                 name="paymentTerm"
                 defaultValue={customer.paymentTerm}
                 placeholder="Payment Term"
-                ref={register}
+                ref={register({
+                  required: true,
+                  min: 1,
+                })}
               />
+              {errors.paymentTerm && (
+                <ErrorMessage>Need at least 1 digit</ErrorMessage>
+              )}
               <Label>Website</Label>
               <Input
                 border="rgb(240, 151, 151)"

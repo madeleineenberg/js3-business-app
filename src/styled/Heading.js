@@ -78,3 +78,9 @@ export const CustomerLink = styled(Link)`
     color: ${(props) => props.color || "#fff"};
   }
 `;
+
+export const ErrorMessage = styled.p`
+  color: red;
+  font-size: 10px;
+  margin-top: -20px;
+`;
