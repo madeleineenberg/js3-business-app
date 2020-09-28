@@ -26,75 +26,69 @@ export default function RegisterForm() {
       organisationName,
       organisationKind
     );
+    alert(`Check your mail and follow the link to activate your account `);
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
+    setOrganisationName("");
+    setOrganisationKind("");
   }
-
-  // FUNKTION FÖR ATT RENDERA FLERA INPUT MED MINDRE KOD
-
-  function renderInput(index, placeholder, stateVariable, stateSetVariable) {
-    return (
-      <div key={index}>
-        <Label>{placeholder}</Label>
-        <Input
-          placeholder={placeholder}
-          value={stateVariable}
-          onChange={(e) => stateSetVariable(e.target.value)}
-        />
-      </div>
-    );
-  }
-  // ARRAY MED VAD INPUTS SKA INNEHÅLLA
-  const inputObjects = [
-    ["First Name", firstName, setFirstName],
-    ["Last Name", lastName, setLastName],
-    ["Email", email, setEmail],
-    ["Password", password, setPassword],
-    ["Organisation Name", organisationName, setOrganisationName],
-    ["Organisation Kind (0,1,2)", organisationKind, setOrganisationKind],
-  ];
 
   return (
     <Form>
       <MediumHeading color="#ccc">Register</MediumHeading>
+      <div>
+        <Label>First Name</Label>
+        <Input
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+      </div>
+      <div>
+        <Label>Last Name</Label>
+        <Input
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+      </div>
+      <div>
+        <Label>Email</Label>
+        <Input
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+      <div>
+        <Label>Password</Label>
+        <Input
+          placeholder="Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+      <div>
+        <Label>Organisation Name</Label>
+        <Input
+          placeholder="Organisation Name"
+          value={organisationName}
+          onChange={(e) => setOrganisationName(e.target.value)}
+        />
+      </div>
+      <div>
+        <Label>Organisation Kind</Label>
+        <Input
+          placeholder="Organisation Kind (0, 1, 2)"
+          value={organisationKind}
+          onChange={(e) => setOrganisationKind(e.target.value)}
+        />
+      </div>
 
-      {/* ETT ANNAT SÄTT ATT RENDERA FLERA INPUT PÅ ETT KORTARE SÄTT */}
-      {inputObjects.map((inputItem, index) => {
-        return renderInput(index, inputItem[0], inputItem[1], inputItem[2]);
-      })}
       <SubmitButton onClick={handleRegister}>Register</SubmitButton>
     </Form>
   );
-}
-
-//VANLIGA SÄTTET ATT SKRIVA INPUT
-{
-  /* <input
-        placeholder="First Name"
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
-      />
-      <input
-        placeholder="Last Name"
-        value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
-      />
-      <input
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
-        placeholder="Organisation Name"
-        value={organisationName}
-        onChange={(e) => setOrganisationName(e.target.value)}
-      />
-      <input
-        placeholder="Organisation Kind (0, 1, 2)"
-        value={organisationKind}
-        onChange={(e) => setOrganisationKind(e.target.value)}
-      /> */
 }

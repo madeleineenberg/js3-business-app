@@ -12,6 +12,7 @@ export const Form = styled.div`
 
   margin-top: 100px;
   margin-bottom: 50px;
+  /* width: 450px; */
 `;
 
 export const Input = styled.input`

@@ -30,3 +30,8 @@ export const Image = styled.img`
   /* width: 150px;
   height: 150px; */
 `;
+
+export const ActivateWrapper = styled.div`
+  position: absolute;
+  top: 200px;
+`;
