@@ -54,3 +54,13 @@ export const CreateButton = styled.input`
     color: black;
   }
 `;
+
+export const DeleteButton = styled(SubmitButton)`
+  &:hover {
+    text-decoration: none;
+    background: darkred;
+    color: White;
+    transition: linear 0.3s;
+    border: 2px solid darkred;
+  }
+`;

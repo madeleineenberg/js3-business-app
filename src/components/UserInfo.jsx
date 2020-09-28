@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
+
+//styles
 import { GridBox } from "../styled/Grid";
 import { SubTitle, Paragraph, Span, CustomerInfo } from "../styled/Heading";
 import { TextWrapper, FlexContainer, Image } from "../styled/Container";

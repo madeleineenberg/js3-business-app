@@ -14,7 +14,7 @@ import {
 import { Container, TextWrapper } from "../styled/Container";
 import { Grid, GridBox } from "../styled/Grid";
 import { Label, Input, FormCreateCustomer } from "../styled/Form";
-import { CreateButton, SubmitButton } from "../styled/Buttons";
+import { CreateButton, SubmitButton, DeleteButton } from "../styled/Buttons";
 import { Ul } from "../styled/List";
 
 //data
@@ -193,9 +193,9 @@ export default function CustomerDetailPage(props) {
               </li>
               <Container>
                 <TextWrapper>
-                  <SubmitButton onClick={handleDelete}>
+                  <DeleteButton onClick={handleDelete}>
                     Delete Customer
-                  </SubmitButton>
+                  </DeleteButton>
                 </TextWrapper>
               </Container>
             </Ul>

@@ -80,7 +80,7 @@ export default function CreateCustomer() {
         <Input name="email" placeholder="email" ref={register} />
         <Label>Phone Number</Label>
         <Input name="phoneNumber" placeholder="Phone Number" ref={register} />
-        <CreateButton type="Submit" />
+        <CreateButton type="Submit" value="Submit" />
       </FormCreateCustomer>
     </GridBox>
   );

@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
+
+//data
 import UserKit from "../data/UserKit";
+
+//context
 import { CustomerContext } from "../contexts/CustomerContext";
-import { UserContext } from "../contexts/UserContext";
 
 //Components
 import GetCustomers from "../components/GetCustomers";
@@ -9,20 +12,16 @@ import UserInfo from "../components/UserInfo";
 
 //styles
 import { Container } from "../styled/Container";
-import { Paragraph, Heading } from "../styled/Heading";
+import { Heading } from "../styled/Heading";
 import CreateCustomer from "../components/CreateCustomer";
-
-//styles
 import { Grid } from "../styled/Grid";
 
 export default function HomePage() {
   const userKit = new UserKit();
   const [customerList, setCustomerList] = useState([]);
-  const { onlineUser, setOnlineUser, getUserInfo } = useContext(UserContext);
 
   useEffect(() => {
     getCustomerList(); // eslint-disable-next-line
-    setOnlineUser(getUserInfo());
   }, []);
 
   function getCustomerList() {
